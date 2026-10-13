@@ -1,12 +1,35 @@
 {
-  "userId": "u_4886111579d6765a",
-  "projectId": "devicexn-cbe21362",
+  "schemaVersion": 2,
   "name": "devicexn",
-  "board": {
-    "fqbn": "esp32:esp32:esp32s3"
+  "target": {
+    "framework": "arduino",
+    "board": "esp32:esp32:esp32s3",
+    "options": {
+      "CDCOnBoot": "default",
+      "CPUFreq": "240",
+      "DebugLevel": "none",
+      "DFUOnBoot": "default",
+      "EraseFlash": "none",
+      "EventsCore": "1",
+      "FlashMode": "qio",
+      "FlashSize": "16M",
+      "JTAGAdapter": "default",
+      "LoopCore": "1",
+      "MSCOnBoot": "default",
+      "PartitionScheme": "min_spiffs",
+      "PSRAM": "disabled",
+      "UploadMode": "default",
+      "UploadSpeed": "115200",
+      "USBMode": "hwcdc",
+      "ZigbeeMode": "default"
+    }
   },
-  "selections": null,
-  "serial": null,
+  "serial": {
+    "baudRate": 115200
+  },
+  "build": {
+    "properties": []
+  },
   "createdAt": "2026-10-13T05:20:15.519Z",
-  "updatedAt": "2026-10-13T05:20:15.519Z"
+  "updatedAt": "2026-10-13T05:26:34.120Z"
 }
