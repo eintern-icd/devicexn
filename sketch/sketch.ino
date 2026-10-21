@@ -1,16 +1,36 @@
 #include <Norvi.h>
+#include <ModbusMaster.h>
+
+// Norvi X CPU-ESPS3-X1 onboard RS-485 pins
+#define RX_PIN 16
+#define TX_PIN 15
+
+ModbusMaster node;
 
 void setup() {
-  Serial.begin(115200);
+  // Initialize Serial2 for RS-485 communication with XY-MD02
+  Serial2.begin(9600, SERIAL_8N1, RX_PIN, TX_PIN);
   
-  // Initialize device if required, or remove invalid Norvi.begin() if not supported by this library version.
+  // Initialize Modbus slave ID 1 (default for XY-MD02)
+  node.begin(1, Serial2);
 }
 
 void loop() {
-  // Publishing explicitly typed values matching Norvi library prototypes (int, float, bool)
-  Norvi.publish("temperature", (int)24);
-  //Norvi.publish("humidity", (float)55.5);
-  //Norvi.publish("motor_status", (bool)true);
-  
-  delay(5000); 
+  // Read Input Registers from XY-MD02 (Address 0x0001 = Temperature, 0x0002 = Humidity)
+  uint8_t result = node.readInputRegisters(0x0001, 2);
+
+  if (result == node.ku8MBSuccess) {
+    float temperature = node.getResponseBuffer(0) / 10.0;
+    float humidity = node.getResponseBuffer(1) / 10.0;
+
+    char tempStr[10];
+    char humStr[10];
+    snprintf(tempStr, sizeof(tempStr), "%.1f", temperature);
+    snprintf(humStr, sizeof(humStr), "%.1f", humidity);
+
+    Norvi.publish("temperature", tempStr);
+    Norvi.publish("humidity", humStr);
+  }
+
+  delay(5000);
 }
