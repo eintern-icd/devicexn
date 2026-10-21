@@ -8,7 +8,7 @@ ModbusMaster node;
 
 void setup() {
   // XY-MD02 standard Modbus baud rate is 9600
-  Serial2.begin(9600, SERIAL_8N1, RS485_RXD, RS485_TXD);
+  Serial2.begin(115200, SERIAL_8N1, RS485_RXD, RS485_TXD);
   
   // Initialize Modbus slave ID 1 (default for XY-MD02)
   node.begin(1, Serial2);
