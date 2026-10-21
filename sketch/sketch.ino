@@ -1,15 +1,14 @@
 #include <Norvi.h>
 #include <ModbusMaster.h>
 
-// Norvi X CPU-ESPS3-X1 onboard RS-485 pins
-#define RX_PIN 16
-#define TX_PIN 15
+#define RS485_RXD 16
+#define RS485_TXD 15
 
 ModbusMaster node;
 
 void setup() {
-  // Initialize Serial2 for RS-485 communication with XY-MD02
-  Serial2.begin(9600, SERIAL_8N1, RX_PIN, TX_PIN);
+  // XY-MD02 standard Modbus baud rate is 9600
+  Serial2.begin(9600, SERIAL_8N1, RS485_RXD, RS485_TXD);
   
   // Initialize Modbus slave ID 1 (default for XY-MD02)
   node.begin(1, Serial2);
