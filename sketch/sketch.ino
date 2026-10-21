@@ -3,20 +3,14 @@
 void setup() {
   Serial.begin(115200);
   
-  // Initialize the Norvi device (assuming standard initialization)
-  Norvi.begin(); 
+  // Initialize device if required, or remove invalid Norvi.begin() if not supported by this library version.
 }
 
 void loop() {
-  // Publishing an integer value[cite: 1]
-  Norvi.publish("temperature", 24);
+  // Publishing explicitly typed values matching Norvi library prototypes (int, float, bool)
+  Norvi.publish("temperature", (int)24);
+  Norvi.publish("humidity", (float)55.5);
+  Norvi.publish("motor_status", (bool)true);
   
-  // Publishing a float value[cite: 1]
-  Norvi.publish("humidity", 55.5);
-  
-  // Publishing a boolean value[cite: 1]
-  Norvi.publish("motor_status", true);
-  
-  // Wait 5 seconds before publishing again
   delay(5000); 
 }
