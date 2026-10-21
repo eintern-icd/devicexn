@@ -7,10 +7,8 @@ void setup() {
 }
 
 void loop() {
-  // Publishing explicitly typed values matching Norvi library prototypes (int, float, bool)
-  Norvi.publish("temperature", (int)24);
-  //Norvi.publish("humidity", (float)55.5);
-  //Norvi.publish("motor_status", (bool)true);
   
+  Norvi.publish("temperature", String("24"));
+  Norvi.publish("humidity", String("60"));
   delay(5000); 
 }
