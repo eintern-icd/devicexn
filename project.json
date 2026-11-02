@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "name": "devicexn",
+  "name": "Publish lib",
   "target": {
     "framework": "arduino",
     "board": "esp32:esp32:esp32s3",
@@ -31,5 +31,5 @@
     "properties": []
   },
   "createdAt": "2026-10-13T05:20:15.519Z",
-  "updatedAt": "2026-10-21T07:33:12.374Z"
+  "updatedAt": "2026-11-02T09:04:58.940Z"
 }
