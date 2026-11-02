@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "name": "Publish lib",
+  "name": "devicexn",
   "target": {
     "framework": "arduino",
     "board": "esp32:esp32:esp32s3",
@@ -16,8 +16,8 @@
       "JTAGAdapter": "default",
       "LoopCore": "1",
       "MSCOnBoot": "default",
-      "PartitionScheme": "min_spiffs",
-      "PSRAM": "disabled",
+      "PartitionScheme": "huge_app",
+      "PSRAM": "enabled",
       "UploadMode": "default",
       "UploadSpeed": "115200",
       "USBMode": "hwcdc",
@@ -31,5 +31,5 @@
     "properties": []
   },
   "createdAt": "2026-10-13T05:20:15.519Z",
-  "updatedAt": "2026-11-02T09:04:58.940Z"
+  "updatedAt": "2026-10-29T04:56:09.782Z"
 }
